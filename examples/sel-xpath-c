@@ -1,0 +1,4 @@
+#!/bin/sh
+
+${SED:-sed} "s/[\\'\"]/\\\&/g" < sel-xpath.input | xargs -I XPATH \
+    ./xmlstarlet sel --text -t -m /doc -c XPATH --nl xml/foo.xml
